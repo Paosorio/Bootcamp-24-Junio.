@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src=angular.min.js> </script>
+	<meta charset="utf-8">
+</head>
+<body>
+<div ng-app>
+     <p>Name:<input type=text ng-model=name> </p>
+     <p ng-bind=name></p>
+</div>
+<div ng-app>
+<p>My first expression:{{5+5}}</p>
+
+</div>
+
+<div ng-app ng-init=quantity=2;cost=5>
+<p>Total in dollar:{{quantity*cost}}</p>
+</div>-->
+
+<div ng-app="myApp" ng-controller="myController">
+<button ng-click="count=count + 1">Click Me!</button>
+<p>{{ count }}</p>
+</div>
+
+<script >
+	     var myApp = angular.module("myApp",[]);
+	     myApp.controller("myController", function($scope)
+	     {
+	     	$scope.count=0;
+	     });
+
+
+
+</script>
+
+<div ng-app ng-init="firstName='John';lastName='Doe'">
+<p>The full name is.{{firstName+" "+ lastName}}</p>
+</div>
+
+<p>Try to change the names.</p>
+<div ng-app="myApp" ng-controller=personController>
+First Name:<input type=text ng-model=firstName><br>
+Last Name:<input type=text ng-model=lastName><br>
+Full Name:{{firstName + " " + lastName}}
+</div>
+<script>
+		 var myApp = angular.module("myApp",[]);
+	     myApp.controller("personController", function($scope)
+	     {
+	     	$scope.firstName = "Jhohn";
+			$scope.lastName = "Doe";
+	     });
+</script>
+
+
+
+<div ng-app ng-init=points=[1,15,19,2,40]>
+  <p> The third result is {{points[3]}}</p>
+  </div>-->
+
+
+<div ng-app data-ng-init=names=['luz','liz','Ana']>
+<p>Looping with ng-repeat:</p>
+<ul>
+<li ng-repeat="x in names">
+{{x}}
+</li>
+</ul>
+
+<div ng-app>
+<p>Name:<input type=text ng-model=nombre></p>
+<p>En mayúscula {{nombre | uppercase}}</p>
+<p>En minúscula {{nombre | lowercase}}</p>
+
+</div>
+
+<div ng-app="" ng-init="names=[
+{name:'Ana',country:'Paraguay'},
+{name:'Victor',country:'Argentina'},
+{name:'Luis',country:'Brasil'}]">
+<p>Looping with objects:</p>
+<ul>
+<li ng-repeat="x in names | orderBy:'country'">
+{{ x.name + ',' + x.country }}</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

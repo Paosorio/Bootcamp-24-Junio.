@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+
+
+<script src=angular.min.js> </script>
+	<meta charset="utf-8">
+	<title>Ejercicio</title>
+</head>
+<body>
+
+<div ng-app>
+     <p>Nombre:<input type=text ng-model=Nombre> </p>
+     <p>Apellido:<input type="text" ng-model=Apellido></p>
+     full name:{{"Hola" + " " + Nombre + "" + Apellido}}
+</div>
+
+<div ng-app>
+     <p>Operando1:<input type="text" ng-model=Operando1> </p>
+     <p>Operando2:<input type="text" ng-model=Operando2></p>
+      
+<button ng-click="count=Operando1 / Operando2">/!</button>
+
+     
+
+      <p>{{ count }}</p>
+
+</div>
+
+
+
+
+<div ng-app="myApp">
+<input type="text" ng-model="text"  placeholder="Enter you input here...">
+<p>Input value: {{text}}</p>
+<p>Filtered Value:{{text | reverse}}</p>
+</div>
+
+<script>
+	var myApp = angular.module ("myApp", []);
+	myApp .filter("reverse", function() {
+		return function (input) {
+        return input.split("").reverse ().join("");
+	
+	};
+});
+
+</script>
+
+
+
+<div ng-app  >
+<p> texto<input type="text" ng-model="resultado"  maxlength="140"  ng-keydown ="result= 140 - resultado.length;style=(result < 6)? {'color':'red'}: {'color':'black'}"  > </p>
+
+
+<p ng-style="style">{{result}}</p>
+  
+
+</div>
+
+
+</body>
+</html>
+
